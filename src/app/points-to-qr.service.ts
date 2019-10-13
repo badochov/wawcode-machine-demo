@@ -18,6 +18,7 @@ export class PointsToQrService {
   }
 
   requestPoints(): void {
+    this.sendPointsSubject.next(0);
     this.requestPointsSubject.next();
   }
 

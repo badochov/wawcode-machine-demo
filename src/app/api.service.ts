@@ -20,6 +20,7 @@ export class ApiService {
   }
 
   public getQrString(points: number): Observable<QrString> {
+    console.log(points);
     return this.httpClient.post<QrString>(API_URL + "/qry/wygeneruj", {
       points,
       api_token: environment.apiToken,

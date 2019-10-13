@@ -21,6 +21,9 @@ export class PointsComponent implements OnInit {
     private pointsToQrService: PointsToQrService,
     private apiService: ApiService
   ) {
+    // @ts-ignore
+    window.points = 0;
+
     this.pointsToQrService.requestPoints$.subscribe(() => {
       this.pointsToQrService.sendPoints(this.points);
     });
@@ -32,5 +35,8 @@ export class PointsComponent implements OnInit {
 
   addPoints(points: number): void {
     this.points += points;
+
+    // @ts-ignore
+    window.points = this.points;
   }
 }

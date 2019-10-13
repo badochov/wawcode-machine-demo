@@ -1,3 +1,5 @@
 <div>
-  <button [ngStyle]="{'background-color': bottle.color}" (click)="addPoints()">{{bottle.name}}</button>
+  <button nbButton fullWidth shape="semi-round"
+    [ngStyle]="{'background-color': bottle.color,'border-color':bottle.color}"
+    (click)="addPoints()">{{bottle.name}}</button>
 </div>

@@ -34,6 +34,9 @@ export class QrButtonComponent implements OnInit {
   }
 
   requestPoints() {
-    this.pointsToQrService.requestPoints();
+    // @ts-ignore
+    const points = window.points;
+    this.generateQr(points);
+    // this.pointsToQrService.requestPoints();
   }
 }

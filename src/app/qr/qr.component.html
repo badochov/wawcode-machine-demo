@@ -1,5 +1,7 @@
-<qr-code [value]="string" [level]="Q" [size]="150"></qr-code>
+<div id="qr-code-contener">
+  <qr-code [value]="string" [level]="'Q'" [size]="150"></qr-code>
+</div>
 
 <div>
-  <a [routerLink]="['/']">Zeskanowałem</a>
+  <a nbButton fullWidth shape="semi-round" status="success" size="giant" [routerLink]="['/']">Zeskanowałem</a>
 </div>
