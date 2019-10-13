@@ -30,7 +30,7 @@ export class QrButtonComponent implements OnInit {
   generateQr(points: number) {
     this.apiService
       .getQrString(points)
-      .subscribe(qrString => this.router.navigate(["/qr", qrString]));
+      .subscribe(qrString => this.router.navigate(["/qr", qrString.string]));
 
     // $.ajax({
     //   url: this.qrURL,
