@@ -31,19 +31,6 @@ export class QrButtonComponent implements OnInit {
     this.apiService
       .getQrString(points)
       .subscribe(qrString => this.router.navigate(["/qr", qrString.string]));
-
-    // $.ajax({
-    //   url: this.qrURL,
-    //   method: "POST",
-    //   data: { points: points },
-    //   success: res => {
-    //     this.router.navigate(["/qr", res.string]);
-    //   },
-    //   error: res => {
-    //     console.error(res);
-    //     alert("API wyjebało");
-    //   },
-    // });
   }
 
   requestPoints() {
