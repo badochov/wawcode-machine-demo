@@ -1,0 +1,4 @@
+<h1>Punkty:</h1>
+<h2>{{points}}</h2>
+<app-bottle-button *ngFor="let bottle of bottles | async;" [bottle]="bottle" (addBottlePoints)="addPoints($event)">
+</app-bottle-button>
