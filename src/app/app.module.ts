@@ -11,9 +11,10 @@ import { QRCodeModule } from "angular2-qrcode";
 import { MachineComponent } from "./machine/machine.component";
 
 import { HttpClientModule } from "@angular/common/http";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NbThemeModule, NbLayoutModule } from "@nebular/theme";
+import { NbEvaIconsModule } from "@nebular/eva-icons";
+import { ApiService } from "./api.service";
 
 @NgModule({
   declarations: [
@@ -24,8 +25,17 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     QrComponent,
     MachineComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, QRCodeModule, HttpClientModule, BrowserAnimationsModule, NbThemeModule.forRoot({ name: 'default' }), NbLayoutModule, NbEvaIconsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    QRCodeModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: "default" }),
+    NbLayoutModule,
+    NbEvaIconsModule,
+  ],
+  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

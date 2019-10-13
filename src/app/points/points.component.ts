@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { of } from "rxjs";
+import { of, Observable } from "rxjs";
 import { PointsToQrService } from "../points-to-qr.service";
+import { Bottle } from "../bottle.model";
+
+import $ from "jquery";
+import { environment } from "src/environments/environment";
+import { ApiService } from "../api.service";
 
 @Component({
   selector: "app-points",
@@ -8,17 +13,19 @@ import { PointsToQrService } from "../points-to-qr.service";
   styleUrls: ["./points.component.scss"],
 })
 export class PointsComponent implements OnInit {
-  bottles = of([
-    { points: 1, name: "szklana", color: "red" },
-    { points: 5, name: "plastikowa", color: "green" },
-    { points: 10, name: "papierowa", color: "lime" },
-  ]);
+  bottles: Observable<Array<Bottle>>;
   points = 0;
+  bottlesURL = `${environment.apiUrl}/butelki/`;
 
-  constructor(private pointsToQrService: PointsToQrService) {
+  constructor(
+    private pointsToQrService: PointsToQrService,
+    private apiService: ApiService
+  ) {
     this.pointsToQrService.requestPoints$.subscribe(() => {
       this.pointsToQrService.sendPoints(this.points);
     });
+
+    this.bottles = this.apiService.getAllBottles();
   }
 
   ngOnInit() {}

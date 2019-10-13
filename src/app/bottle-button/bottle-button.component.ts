@@ -16,11 +16,9 @@ export class BottleButtonComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    ({ points: this.points, name: this.name, color: this.color } = this.bottle);
-  }
+  ngOnInit() {}
 
   addPoints(): void {
-    this.addBottlePoints.emit(this.points);
+    this.addBottlePoints.emit(this.bottle.points);
   }
 }

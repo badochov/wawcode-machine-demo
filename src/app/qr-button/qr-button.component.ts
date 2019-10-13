@@ -3,6 +3,9 @@ import { PointsToQrService } from "../points-to-qr.service";
 import { Router } from "@angular/router";
 
 import $ from "jquery";
+import { environment } from "src/environments/environment";
+import { ApiService } from "../api.service";
+import { QrString } from "../qr-string.model";
 
 @Component({
   selector: "app-qr-button",
@@ -10,11 +13,12 @@ import $ from "jquery";
   styleUrls: ["./qr-button.component.scss"],
 })
 export class QrButtonComponent implements OnInit {
-  private qrURL = "https://api.adambuczek.com/api/qry/wygeneruj";
+  private qrURL = `${environment.apiUrl}/api/qry/wygeneruj`;
 
   constructor(
     private pointsToQrService: PointsToQrService,
-    private router: Router
+    private router: Router,
+    private apiService: ApiService
   ) {
     this.pointsToQrService.sendPoints$.subscribe((points: number) => {
       this.generateQr(points);
@@ -24,18 +28,22 @@ export class QrButtonComponent implements OnInit {
   ngOnInit() {}
 
   generateQr(points: number) {
-    $.ajax({
-      url: this.qrURL,
-      method: "POST",
-      data: { points: points },
-      success: res => {
-        this.router.navigate(["/qr", res.string]);
-      },
-      error: res => {
-        console.error(res);
-        alert("API wyjebało");
-      },
-    });
+    this.apiService
+      .getQrString(points)
+      .subscribe(qrString => this.router.navigate(["/qr", qrString]));
+
+    // $.ajax({
+    //   url: this.qrURL,
+    //   method: "POST",
+    //   data: { points: points },
+    //   success: res => {
+    //     this.router.navigate(["/qr", res.string]);
+    //   },
+    //   error: res => {
+    //     console.error(res);
+    //     alert("API wyjebało");
+    //   },
+    // });
   }
 
   requestPoints() {
