@@ -1,0 +1,27 @@
+[debug] [2019-10-13T11:50:51.170Z] ----------------------------------------------------------------------
+[debug] [2019-10-13T11:50:51.174Z] Command:       D:\Program Files\node\node.exe C:\Users\badoc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-10-13T11:50:51.174Z] CLI Version:   7.5.0
+[debug] [2019-10-13T11:50:51.174Z] Platform:      win32
+[debug] [2019-10-13T11:50:51.175Z] Node Version:  v12.7.0
+[debug] [2019-10-13T11:50:51.177Z] Time:          Sun Oct 13 2019 13:50:51 GMT+0200 (GMT+02:00)
+[debug] [2019-10-13T11:50:51.177Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-13T11:50:51.185Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-13T11:50:51.185Z] > authorizing via signed-in user
+[debug] [2019-10-13T11:50:51.185Z] [iam] checking project wawcode-machine-demo for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-10-13T11:50:51.187Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/wawcode-machine-demo:testIamPermissions  
+
+[debug] [2019-10-13T11:50:52.086Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-13T11:50:52.089Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/wawcode-machine-demo  
+ 
+[debug] [2019-10-13T11:50:52.268Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'wawcode-machine-demo'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-10-13T11:50:52.273Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/wawcode-machine-demo/versions  
+
+[debug] [2019-10-13T11:50:53.652Z] <<< HTTP RESPONSE 200
+[info] i  hosting[wawcode-machine-demo]: beginning deploy...
+[info] i  hosting[wawcode-machine-demo]: found 22 files in dist/butelki-demo-automat
+[debug] [2019-10-13T11:50:53.666Z] [hosting] hash cache [ZGlzdFxidXRlbGtpLWRlbW8tYXV0b21hdA] not populated
